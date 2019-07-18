@@ -34,9 +34,7 @@ export default class BlogForm extends Component {
   deleteImage(imageType) {
     axios
       .delete(
-        `https://api.devcamp.space/portfolio/delete-portfolio-blog-image/${
-          this.props.blog.id
-        }?image_type=${imageType}`,
+        `https://api.devcamp.space/portfolio/delete-portfolio-blog-image/${this.props.blog.id}?image_type=${imageType}`,
         { withCredentials: true }
       )
       .then(response => {
@@ -54,9 +52,7 @@ export default class BlogForm extends Component {
         title: this.props.blog.title,
         blog_status: this.props.blog.blog_status,
         content: this.props.blog.content,
-        apiUrl: `https://crisscoles.devcamp.space/portfolio/portfolio_blogs/${
-          this.props.blog.id
-        }`,
+        apiUrl: `https://crisscoles.devcamp.space/portfolio/portfolio_blogs/${this.props.blog.id}`,
         apiAction: "patch"
       });
     }
@@ -127,9 +123,7 @@ export default class BlogForm extends Component {
           // Update blog detail
           this.props.handleUpdateFormSubmission(response.data.portfolio_blog);
         } else {
-          this.props.handleSuccessfullFormSubmission(
-            response.data.portfolio_blog
-          );
+          this.props.handleSuccessfullFormSubmission(response.data.portfolio_blog);
         }
       })
       .catch(error => {
